@@ -1,0 +1,21 @@
+http:
+  routers:
+    maintenance-router:
+      entrypoints:
+        - "https"
+      rule: "Host(`a.example.com`) || Host(`b.example.com`) || Host(`c.example.com`)" #Add routes to be affected my maintenance mode here
+      middlewares:
+        - maintenance
+      service: nginx #Used as dummy service
+      tls: {}
+      priority: 5 # Don't forget to set container labels with higher priority (10)
+
+    service:
+      entryPoints:
+        - "https"
+      rule: "Host(`example.com`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: service

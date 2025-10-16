@@ -1,0 +1,8 @@
+http:
+  services:
+    nginx: #Dummy service to make maintenance plugin work. Nginx container does not have to be running.
+      loadBalancer:
+        servers:
+        - url: "https://nginx-test"
+                passHostHeader: true
+

@@ -1,0 +1,12 @@
+http:
+  middlewares:
+    maintenance:
+      plugin:
+        maintenance-warden:
+          maintenanceFilePath: "/maintenance.html"
+          contentType: "text/html; charset=utf-8"
+          bypassHeader: "X-Service-Control-Token"  # Set this header
+          bypassHeaderValue: "put-a-value-here"          # With this value to bypass
+          enabled: false
+          statusCode: 503
+          logLevel: 1
