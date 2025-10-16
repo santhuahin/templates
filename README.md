@@ -1,0 +1,1 @@
+This repository contains various templates and configurations for things I use.
